@@ -1,6 +1,6 @@
 {
   "name": "New Process CSV",
-  "description": "Datatable from CSV to DataBase.",
+  "description": "Processing csv data into two databases.",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Database.Activities": "[1.5.0]",
