@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>673,824</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>673,1168</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Calculation_ONE_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -72,9 +72,11 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Calculation_ONE" sap:VirtualizedContainerService.HintSize="514,759" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Calculation_ONE" sap:VirtualizedContainerService.HintSize="500,1103" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="Datacolumns" />
     </Sequence.Variables>
@@ -83,6 +85,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Adding extra required columns.&quot;]" />
     <Assign DisplayName="Assigning Column Names" sap:VirtualizedContainerService.HintSize="452,82" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[Datacolumns]</OutArgument>
@@ -91,19 +94,20 @@
         <InArgument x:TypeArguments="s:String[]">[{"Gross_Sale", "Discount", "Sales", "COGS", "Profit", "MonthNum", "MonthName", "Year"}]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Looping through Each Column Name" sap:VirtualizedContainerService.HintSize="452,420" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Datacolumns]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="Looping through Each Column Name" sap:VirtualizedContainerService.HintSize="452,530" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Datacolumns]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,294" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,404" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="[item]" DataTable="[in_dtdata]" DisplayName="Add Column" sap:VirtualizedContainerService.HintSize="354,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+            <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="[item]" DataTable="[in_dtdata]" DisplayName="Add Column" sap:VirtualizedContainerService.HintSize="368,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="368,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[item.ToString+&quot;column added sucessfully.&quot;]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
@@ -116,5 +120,6 @@
         <InArgument x:TypeArguments="sd:DataTable">[in_dtdata]</InArgument>
       </Assign.Value>
     </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Required DatabaseA ready.&quot;]" />
   </Sequence>
 </Activity>

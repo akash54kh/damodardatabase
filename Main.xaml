@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>673,1387</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>673,1963</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="64">
@@ -79,9 +79,10 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="512,1322" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="498,1898" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_data" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_sata" />
@@ -101,8 +102,9 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:SelectFile DisplayName="Select File" Filter="CSV|*.csv" sap:VirtualizedContainerService.HintSize="433.6,139.2" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[csvfilepath]" />
-      <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dt_data]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[csvfilepath]" sap:VirtualizedContainerService.HintSize="433.6,155.2" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+      <ui:SelectFile DisplayName="Select File" Filter="CSV|*.csv" sap:VirtualizedContainerService.HintSize="434,138" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[csvfilepath]" />
+      <ui:ReadCsvFile Encoding="{x:Null}" DataTable="[dt_data]" Delimitator="Comma" DisplayName="Read CSV" FilePath="[csvfilepath]" sap:VirtualizedContainerService.HintSize="434,153" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Input File Reading...&quot;]" />
     </Sequence>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Adding Data Columns workflow" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DataColumns.xaml">
       <ui:InvokeWorkflowFile.Arguments>
@@ -123,11 +125,14 @@
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Date" DataTable="[dtcompleted]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_1" />
+    <ui:RemoveDataColumn Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="MonthName" DataTable="[dtcompleted]" DisplayName="Remove Data Column" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="RemoveDataColumn_2" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;Date column has been removed.&quot;]" />
     <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Asking for desired table name" sap:VirtualizedContainerService.HintSize="450,239" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Table Name?" Title="Assign Table">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[mysqltable]</OutArgument>
       </ui:InputDialog.Result>
     </ui:InputDialog>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Table Name Set for current Database.&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke MySQL DataBase workflow" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="DataBaseData.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_databata">[dtcompleted]</InArgument>
@@ -135,5 +140,6 @@
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="450,85" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;DataBase updated Successfully!!&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Execution now terminated.&quot;]" />
   </Sequence>
 </Activity>

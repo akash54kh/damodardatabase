@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>603.6,1985.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>673,2235</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CalculationTwo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -74,9 +74,11 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CalculationTwo" sap:VirtualizedContainerService.HintSize="613.6,1960.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CalculationTwo" sap:VirtualizedContainerService.HintSize="627,2170" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Double" Name="A" />
       <Variable x:TypeArguments="x:String" Name="strTemp" />
@@ -94,26 +96,27 @@
       <Variable x:TypeArguments="x:String" Name="DiscountAmt" />
       <Variable x:TypeArguments="x:Double" Name="E" />
       <Variable x:TypeArguments="x:String" Name="ProfitAmt" />
+      <Variable x:TypeArguments="x:Int32" Name="idxn" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="572,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Calculating Data...&quot;]" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dtdata]" DisplayName="For Each Row in New Data Table" sap:VirtualizedContainerService.HintSize="572,1635.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="579,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Calculating Required Data...&quot;]" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[idxn]" DataTable="[in_dtdata]" DisplayName="For Each Row in New Data Table" sap:VirtualizedContainerService.HintSize="579,1711" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="538.4,1514.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="545,1589" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="Gross Amount Calculator" sap:VirtualizedContainerService.HintSize="496.8,194.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign DisplayName="Gross Amount Calculator" sap:VirtualizedContainerService.HintSize="497,194" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -151,7 +154,7 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:MultipleAssign DisplayName="Discount Amount Calculator" sap:VirtualizedContainerService.HintSize="496.8,194.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+            <ui:MultipleAssign DisplayName="Discount Amount Calculator" sap:VirtualizedContainerService.HintSize="497,194" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -189,7 +192,7 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:MultipleAssign DisplayName="Sales Amt Calculator" sap:VirtualizedContainerService.HintSize="496.8,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+            <ui:MultipleAssign DisplayName="Sales Amt Calculator" sap:VirtualizedContainerService.HintSize="497,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
@@ -211,7 +214,7 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <Switch x:TypeArguments="x:Int32" DisplayName="Assign G-Factor based on Sales Price Given" Expression="[Cint(dbTemp)]" sap:VirtualizedContainerService.HintSize="496.8,280" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <Switch x:TypeArguments="x:Int32" DisplayName="Assign G-Factor based on Sales Price Given" Expression="[Cint(dbTemp)]" sap:VirtualizedContainerService.HintSize="497,272" sap2010:WorkflowViewState.IdRef="Switch`1_1">
               <Switch.Default>
                 <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_11">
                   <Assign.To>
@@ -228,7 +231,7 @@
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign x:Key="12" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+              <Assign x:Key="12" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_12">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Double">[GFactor]</OutArgument>
                 </Assign.To>
@@ -236,7 +239,7 @@
                   <InArgument x:TypeArguments="x:Double">4</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign x:Key="125" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+              <Assign x:Key="125" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_18">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Double">[GFactor]</OutArgument>
                 </Assign.To>
@@ -244,7 +247,7 @@
                   <InArgument x:TypeArguments="x:Double">[25/24]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign x:Key="15" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+              <Assign x:Key="15" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_13">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Double">[GFactor]</OutArgument>
                 </Assign.To>
@@ -252,7 +255,7 @@
                   <InArgument x:TypeArguments="x:Double">[3/2]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign x:Key="20" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+              <Assign x:Key="20" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_14">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Double">[GFactor]</OutArgument>
                 </Assign.To>
@@ -260,7 +263,7 @@
                   <InArgument x:TypeArguments="x:Double">2</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign x:Key="300" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+              <Assign x:Key="300" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_15">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Double">[GFactor]</OutArgument>
                 </Assign.To>
@@ -268,7 +271,7 @@
                   <InArgument x:TypeArguments="x:Double">[6/5]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign x:Key="350" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+              <Assign x:Key="350" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_16">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Double">[GFactor]</OutArgument>
                 </Assign.To>
@@ -276,7 +279,7 @@
                   <InArgument x:TypeArguments="x:Double">[35/26]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign x:Key="7" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+              <Assign x:Key="7" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_17">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Double">[GFactor]</OutArgument>
                 </Assign.To>
@@ -285,7 +288,7 @@
                 </Assign.Value>
               </Assign>
             </Switch>
-            <ui:MultipleAssign DisplayName="Calculating COGS and Profit" sap:VirtualizedContainerService.HintSize="496.8,194.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+            <ui:MultipleAssign DisplayName="Calculating COGS and Profit" sap:VirtualizedContainerService.HintSize="497,194" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
@@ -323,7 +326,7 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:MultipleAssign DisplayName="Assigning values to New Data Table" sap:VirtualizedContainerService.HintSize="496.8,226.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+            <ui:MultipleAssign DisplayName="Assigning values to New Data Table" sap:VirtualizedContainerService.HintSize="497,225" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
@@ -369,11 +372,13 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="497,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Calculated Row Data for &quot;+(idxn+1).ToString]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
-    <Assign DisplayName="Sending out the datatable" sap:VirtualizedContainerService.HintSize="572,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="579,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Gain and Loss prepared successfully.&quot;]" />
+    <Assign DisplayName="Sending out the datatable" sap:VirtualizedContainerService.HintSize="579,82" sap2010:WorkflowViewState.IdRef="Assign_19">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[out_bata]</OutArgument>
       </Assign.To>
