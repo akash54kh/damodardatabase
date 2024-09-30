@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DataBaseData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DataBaseData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:swf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" xmlns:u="clr-namespace:UiPathTeam_StatusProgress_Activities;assembly=UiPathTeam.StatusProgress.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_databata" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_tablename" Type="InArgument(x:String)" />
@@ -6,10 +6,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>870.4,1671.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>673,1735</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DataBaseData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="33">
+    <scg:List x:TypeArguments="x:String" Capacity="41">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -43,63 +43,85 @@
       <x:String>UiPath.DataTableUtilities</x:String>
       <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>System.Globalization</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Forms.Layout</x:String>
+      <x:String>UiPathTeam_StatusProgress_Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Windows.Forms.Automation</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
-      <AssemblyReference>System.Activities</AssemblyReference>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="60">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
-      <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Drawing</AssemblyReference>
-      <AssemblyReference>System.Core</AssemblyReference>
-      <AssemblyReference>System.Xml</AssemblyReference>
-      <AssemblyReference>System.Xml.Linq</AssemblyReference>
-      <AssemblyReference>PresentationFramework</AssemblyReference>
-      <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>PresentationCore</AssemblyReference>
-      <AssemblyReference>System.Xaml</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
       <AssemblyReference>UiPath.Database</AssemblyReference>
       <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
-      <AssemblyReference>System.ServiceModel</AssemblyReference>
-      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
-      <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPathTeam.StatusProgress.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DataBaseData" sap:VirtualizedContainerService.HintSize="547.2,1606.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DataBaseData" sap:VirtualizedContainerService.HintSize="589,1670" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="mysqlbase" />
       <Variable x:TypeArguments="ui:DatabaseConnection" Name="dataconnect" />
+      <Variable x:TypeArguments="swf:Form" Name="PRdata" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:DatabaseConnect DisplayName="Connect to Wampserver" sap:VirtualizedContainerService.HintSize="505.6,60" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=bakheor;uid=root" DatabaseConnection="[dataconnect]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="505.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Inserting Data into MySQL Database&quot;]" />
-    <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Creating Desried Data Table " ExistingDbConnection="[dataconnect]" sap:VirtualizedContainerService.HintSize="505.6,89.6" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_3" Sql="[&quot;create table if not exists &quot;+in_tablename+&quot; ( Segment char(30), Country char(30), Product char(26), DiRATE varchar(8), UnitsSold float(10,2), ManuPR varchar(8), SalePR varchar(8), PurDATE date, Gross_SAL decimal(10,2), Discount decimal (10,2), Sales decimal (10,2), COGS decimal(10,2), Profit decimal(10,2), MonNum int, MonNAME varchar(20), Year int );&quot;]">
+    <ui:DatabaseConnect DisplayName="Connect to Wampserver" sap:VirtualizedContainerService.HintSize="527,60" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=bakheor;uid=root" DatabaseConnection="[dataconnect]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="527,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Inserting Data into MySQL Database&quot;]" />
+    <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Creating Desried Data Table " ExistingDbConnection="[dataconnect]" sap:VirtualizedContainerService.HintSize="527,89" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_3" Sql="[&quot;create table if not exists &quot;+in_tablename+&quot; ( Segment char(30), Country char(30), Product char(26), DiRATE varchar(8), UnitsSold float(10,2), ManuPR varchar(8), SalePR varchar(8), Gross_SAL decimal(10), Discount decimal (10), Sales decimal (10), COGS decimal(10), Profit decimal(10), MonNum int, MonNAME varchar(20), Year int );&quot;]">
       <ui:ExecuteNonQuery.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteNonQuery.Parameters>
     </ui:ExecuteNonQuery>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="This For Loop will assign all the data of each row to a particular variable and even date conversion is made to suitable format for inserting in MySQL." DataTable="[in_databata]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="505.6,956" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <u:Live_Status ColorText="{x:Null}" Mobile="{x:Null}" ColorBackground="black" ColorBorder="black" Container="[PRdata]" DisplayName="Live Status" sap:VirtualizedContainerService.HintSize="527,25" sap2010:WorkflowViewState.IdRef="Live_Status_1" Location="[{&quot;center&quot;,&quot;center&quot;}]" Message="Now inserting Data into MySQL server..." Opacity="0.8" Progress="-1" Top="True">
+      <u:Live_Status.ProgressAutoClose>
+        <InArgument x:TypeArguments="x:Boolean" />
+      </u:Live_Status.ProgressAutoClose>
+    </u:Live_Status>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="This For Loop will assign all the data of each row to a particular variable and even date conversion is made to suitable format for inserting in MySQL." DataTable="[in_databata]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="527,927" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="R" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="472,791.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="493,764" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="D01" />
               <Variable x:TypeArguments="x:String" Name="D02" />
@@ -123,7 +145,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="430.4,568.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,535" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -182,21 +204,12 @@
                       <InArgument x:TypeArguments="x:String">[R(6).ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
-                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                    <ui:AssignOperation.To>
-                      <OutArgument x:TypeArguments="x:String">[D08]</OutArgument>
-                    </ui:AssignOperation.To>
-                    <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[DateTime.ParseExact(R(7).ToString,"dd-MM-yyyy",
-System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")]</InArgument>
-                    </ui:AssignOperation.Value>
-                  </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
                     <ui:AssignOperation.To>
                       <OutArgument x:TypeArguments="x:String">[D09]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[R(8).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[R(7).ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
@@ -204,7 +217,7 @@ System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")]</InAr
                       <OutArgument x:TypeArguments="x:String">[D10]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[R(9).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[R(8).ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
@@ -212,7 +225,7 @@ System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")]</InAr
                       <OutArgument x:TypeArguments="x:String">[D11]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[R(10).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[R(9).ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
@@ -220,7 +233,7 @@ System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")]</InAr
                       <OutArgument x:TypeArguments="x:String">[D12]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[R(11).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[R(10).ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
@@ -228,7 +241,7 @@ System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")]</InAr
                       <OutArgument x:TypeArguments="x:String">[D13]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[R(12).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[R(11).ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
@@ -236,7 +249,7 @@ System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")]</InAr
                       <OutArgument x:TypeArguments="x:String">[D14]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[R(13).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[R(12).ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
@@ -244,7 +257,7 @@ System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")]</InAr
                       <OutArgument x:TypeArguments="x:String">[D15]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[R(14).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[R(13).ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
@@ -252,13 +265,13 @@ System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")]</InAr
                       <OutArgument x:TypeArguments="x:String">[D16]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">[R(15).ToString]</InArgument>
+                      <InArgument x:TypeArguments="x:String">[R(14).ToString]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Inserting Data Row by Row" ExistingDbConnection="[dataconnect]" sap:VirtualizedContainerService.HintSize="430.4,89.6" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_4" Sql="[String.Format(&quot;insert into &quot;+in_tablename+&quot; values ( '{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', '{7}', {8} , {9} ,{10}, {11}, {12}, {13}, '{14}', {15} )&quot;,&#xA;D01, D02, D03, D04, D05, D06, D07, D08, D09, D10, D11, D12, D13, D14, D15, D16)]">
+            <ui:ExecuteNonQuery AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DisplayName="Inserting Data Row by Row" ExistingDbConnection="[dataconnect]" sap:VirtualizedContainerService.HintSize="431,89" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_4" Sql="[String.Format(&quot;insert into &quot;+in_tablename+&quot; values ( '{0}', '{1}', '{2}', '{3}', {4}, '{5}', '{6}', '{7}', {8} ,{9}, {10}, {11}, {12}, '{13}', {14} )&quot;,&#xD;&#xA;D01, D02, D03, D04, D05, D06, D07, D09, D10, D11, D12, D13, D14, D15, D16)]">
               <ui:ExecuteNonQuery.Parameters>
                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
               </ui:ExecuteNonQuery.Parameters>
@@ -272,7 +285,8 @@ System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd")]</InAr
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachRow>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="505.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Data inserted in MySQL successfully.&quot;]" />
-    <ui:DatabaseDisconnect DatabaseConnection="[dataconnect]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="505.6,22.4" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
+    <u:Close_Status Container="[PRdata]" DisplayName="Close Status" sap:VirtualizedContainerService.HintSize="527,25" sap2010:WorkflowViewState.IdRef="Close_Status_1" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="527,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Data inserted in MySQL successfully.&quot;]" />
+    <ui:DatabaseDisconnect DatabaseConnection="[dataconnect]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="527,25" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
   </Sequence>
 </Activity>
